@@ -4,4 +4,7 @@ from django import forms
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        exclude = ['submitted', 'status']
+        exclude = [ 'status']
+        widgets = {
+            'submitted': forms.DateInput(attrs={'class':'datepicker'}),
+        }
