@@ -20,4 +20,5 @@ from taskapp import views as taskviews
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', taskviews.home, name='home'),
+    url(r'^task_edit/(?P<pk>\d+)$', taskviews.task_edit, name='task_edit'),
 ]

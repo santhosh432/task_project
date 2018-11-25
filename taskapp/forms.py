@@ -4,4 +4,4 @@ from django import forms
 class TaskForm(forms.ModelForm):
     class Meta:
         model = Task
-        exclude = ['submitted']
+        exclude = ['submitted', 'status']
