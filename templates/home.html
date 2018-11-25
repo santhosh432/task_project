@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<form class="form-horizontal" action="" method="POST">
+    <table>
+        {% csrf_token %}
+        <tr>{{ form }}</tr>
+    </table>
+    <input type="submit" value="Submit">
+</form>
+
+<div class="alert alert-info">Task List</div>
+<table class="table">
+    <tr>
+        <th>SLNO </th>
+        <th>ROLL NO  </th>
+        <th>COURSE NAME </th>
+        <th>TASK NAME </th>
+        <th>SUBMITTED DATE </th>
+    </tr>
+    {% for k in task %}
+    <tr>
+        <td>{{ forloop.counter }}</td>
+        <td>{{ k.rollno }}</td>
+        <td>{{ k.course_name }}</td>
+        <td>{{ k.task_name }}</td>
+        <td>{{ k.submitted }}</td>
+    </tr>
+
+    {% endfor %}
+</table>
+
+{% endblock %}
