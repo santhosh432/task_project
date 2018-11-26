@@ -52,7 +52,6 @@ p, ol, ul, dl {
 p {
     padding: 0;
     line-height: 140%;
-    color:white;
     font-size:20px;
 }
 
@@ -779,7 +778,6 @@ table#change-history tbody th {
 
 #content {
     padding: 20px 40px;
-    color:white;
 }
 
 .dashboard #content {
