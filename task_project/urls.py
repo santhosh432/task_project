@@ -16,9 +16,18 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from taskapp import views as taskviews
-
+from django.conf import settings
+from django.conf.urls.static import static
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r'^rajagiri/', admin.site.urls),
     url(r'^$', taskviews.home, name='home'),
     url(r'^task_edit/(?P<pk>\d+)$', taskviews.task_edit, name='task_edit'),
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+# media settings path.....
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+admin.site.site_header = 'TASK MANAGEMENT SYSTEM'
+
+admin.site.site_title = "PROJECT"
+admin.site.index_title = "PROJECT"

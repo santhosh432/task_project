@@ -2,40 +2,7 @@
 
 {% block body %}
 
-<form class="form-horizontal" action="" method="POST">
-    <table class="table table-responsive">
-        {% csrf_token %}
-        <tr>{{ form }}</tr>
-    </table>
-    <input type="submit" value="Submit">
-</form>
 
-<div class="alert alert-info">Task List</div>
-<table class="table">
-    <tr>
-        <th>SLNO </th>
-        <th>ROLL NO  </th>
-        <th>COURSE NAME </th>
-        <th>TASK NAME </th>
-        <th>SUBMITTED DATE </th>
-        <th>Remarks</th>
-        <th>Status</th>
-        <th>Edit</th>
-    </tr>
-    {% for k in task %}
-    <tr>
-        <td>{{ forloop.counter }}</td>
-        <td>{{ k.rollno }}</td>
-        <td>{{ k.course_name }}</td>
-        <td>{{ k.task_name }}</td>
-        <td>{{ k.submitted }}</td>
-        <td>{{ k.remarks }}</td>
-        <td>{{ k.get_task_status_display }}</td>
-        <td><a class="" href="{% url 'task_edit' k.id %}">Edit</a> </td>
-
-    </tr>
-
-    {% endfor %}
-</table>
+<a href="/rajagiri"> click here to add student </a>
 
 {% endblock %}
