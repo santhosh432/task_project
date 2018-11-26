@@ -9,7 +9,7 @@ class Task(models.Model):
     rollno = models.CharField(max_length=10, help_text='Student Roll number')
     course_name = models.CharField(max_length=50, help_text='Student ciurse name')
     task_name = models.CharField(max_length=300, help_text='Student task/project name')
-    submitted = models.DateTimeField(default=datetime.datetime.now())
+    submitted = models.DateTimeField(blank=True, null=True)
     status = models.BooleanField(default=False)
     remarks = models.CharField(max_length=100, help_text='Remarks of the task')
     task_status = models.CharField(max_length=1, choices=task_choice)
@@ -17,5 +17,5 @@ class Task(models.Model):
     file = models.FileField(verbose_name='Project file')
 
     def __str__(self):
-        return '{0}'.format(self.rollno)
+        return '{0}'.format(self.username)
 

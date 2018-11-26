@@ -7,9 +7,10 @@ admin.site.disable_action('delete_selected') # removed all delete actions
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ['username', 'course_name', 'task_name','file', 'submitted', 'last_date']
+    list_display = ['username', 'course_name', 'task_name','file', 'submitted','remarks', 'last_date']
     fields = ['username','course_name' , 'remarks', 'task_status']
     list_editable = ['task_name','file']
+    # actions = ['delete_selected']
 
     def has_add_permission(self, request):
         if request.user.is_superuser:
@@ -31,8 +32,17 @@ class TaskAdmin(admin.ModelAdmin):
             obj.save()
 
         super(TaskAdmin, self).save_model(request, obj, form, change)
-
-
+    #
+    # def get_action(self, request):
+    #     actions = super(TaskAdmin, self).get_action(request)
+    #     # print(actions)
+    #     if request.user.is_superuser:
+    #         print('ok')
+    #         return actions
+    #     else:
+    #         del actions['delete_selected']
+    #         # return actions
+    #         return actions
 
     def get_queryset(self, request):
         qs = super(TaskAdmin, self).get_queryset(request)
@@ -43,7 +53,7 @@ class TaskAdmin(admin.ModelAdmin):
 
     def get_fields(self, request, obj=None):
         if request.user.is_superuser:
-            return 'username','course_name' , 'remarks', 'task_status'
+            return 'username','course_name' , 'remarks', 'task_status','last_date'
         else:
             return  'task_name', 'remarks',
 
@@ -52,4 +62,8 @@ class TaskAdmin(admin.ModelAdmin):
             return 'username'
         else:
             return None
+
+
+
+
 
