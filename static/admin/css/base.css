@@ -670,7 +670,6 @@ div.breadcrumbs a:focus, div.breadcrumbs a:hover {
 .addlink {
     padding-left: 16px;
     background: url(../img/icon-addlink.svg) 0 1px no-repeat;
-    display:none !important;
 }
 
 .changelink, .inlinechangelink {
@@ -986,11 +985,8 @@ table#change-history tbody th {
     padding: 10px 20px;
 }
 
-#recent-actions-module {
-display:none !important;}
-.app-auth {
-display:none !important;}
+
 
 tr:nth-child(even) {background-color: #fed4d0 !important;}
 
-p a:link {color:white;}
+p a:link {color:red;}
